@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Project Combine HTML-CSS-JS</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            font-family: 'Open Sans',sans-serif;
+            background-image: linear-gradient(to left top,rgb(255, 0, 0,0.45),rgba(0, 0, 255,0.4)),url('https://images.unsplash.com/photo-1542068829-1115f7259450?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+  
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .main-quote{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn{
+            position: absolute;
+            bottom:0;
+            padding:20px;
+            background-color: rgb(204, 204, 204,0.3);
+            color: white;
+            border-radius: 10px;
+            min-width: 200px;
+            line-height: 10px;
+            font-size: 20px;
+            outline: none;
+            border:2px solid;
+            margin-bottom:20px;
+            font-weight: bold;
+            transition: all  ease-in-out;
+            cursor: pointer;
+        }
+        .btn:active{
+            border-color: rgb(0, 0, 255,0.7);
+        }
+        .btn:hover{
+            background-color: rgb(204, 204, 204,0.6);
+        }
+        #h1{
+            font-size: 500px;
+            color: white;
+        }
+
+        .wrap-head{
+            margin-top: 200px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #quote{
+            font-size: 50px;
+        }
+
+        #author{
+            margin-top: 80px;
+            text-align: center;
+            color:transparent;
+            font-size: 30px;
+            font-weight: bold;
+            background-image: linear-gradient(to bottom,rgb(0, 0, 255,0.5),rgb(255, 255, 255,0.9));
+            -webkit-background-clip:text;
+            background-clip: text;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-quote">
+        <div class="wrap-head">
+        <h1 id="quote"></h1>
+        <div id="author"></div>
+        </div>
+        <button class="btn" onclick="makeQuote()">Change</button>
+    </div>
+    <script>
+        var quotes = [
+            {
+                quote: 'Life is about making an impact, not making an income.',
+                author: 'Kevin Kruse'
+            },
+            {
+                quote: 'We know what we are, but know not what we may be.',
+                author: 'William Shakespeare'
+            },
+            {
+                quote: 'Học, học nữa, học mãi',
+                author: 'Lê Nin'
+            },
+            {
+                quote: 'If you can dream it, you can do it.',
+                author: 'Walt Disney'
+            }
+        ];
+
+        function makeRandomNumber(range){
+            return Math.floor(Math.random()*range);
+        }
+
+        function getQuote(){
+            return quotes[makeRandomNumber(quotes.length)];
+        }
+
+        function makeQuote(){
+            var quote = getQuote();
+
+            var eleQuote = document.getElementById('quote');
+            var eleAuthor = document.getElementById('author');
+            
+            eleQuote.innerText = quote.quote;
+            eleAuthor.innerText = quote.author;
+        }
+
+        window.onload = makeQuote();
+    </script>
+</body>
+</html>
